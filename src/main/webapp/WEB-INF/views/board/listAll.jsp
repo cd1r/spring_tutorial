@@ -67,6 +67,6 @@
     	alert("처리가 완료되었습니다.");
     }
     
-    </script>
+</script>
 
 <%@include file="../include/footer.jsp"%>
