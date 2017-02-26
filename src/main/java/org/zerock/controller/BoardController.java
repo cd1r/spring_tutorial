@@ -58,6 +58,14 @@ public class BoardController {
 		model.addAttribute(service.read(bno));
 	}
 	
+	@RequestMapping(value = "/readPage", method = RequestMethod.GET)
+	public void readPage(@RequestParam("bno") int bno,
+					@ModelAttribute("cri") Criteria cri,
+					Model model) throws Exception{
+		
+		model.addAttribute(service.read(bno));
+	}
+	
 	/*@RequestMapping(value = "/remove", method = RequestMethod.POST)
 	public String remove(@RequestParam("bno") int bno, RedirectAttributes rttr) throws Exception{
 		

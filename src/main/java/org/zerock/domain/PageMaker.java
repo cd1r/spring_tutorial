@@ -15,8 +15,7 @@ public class PageMaker {
 	private Criteria cri;
 	
 	public void setCri(Criteria cri){
-		this.totalCount = totalCount;
-		calcData();
+		this.cri = cri;
 	}
 	
 	public void setTotalCount(int totalCount){
@@ -94,6 +93,19 @@ public class PageMaker {
 				.build();
 		
 		return uriComponents.toUriString();
+	}
+	
+	public String makeSearch(int page){
+		UriComponents uriComponents = 
+				UriComponentsBuilder.newInstance()
+				.queryParam("page", page)
+				.queryParam("perPageNum", cri.getPerPageNum())
+				.queryParam("searchType", ((SearchCriteria)cri).getSearchType())
+				.queryParam("keyword", ((SearchCriteria)cri).getKeyword())
+				.build();
+		
+		return uriComponents.toUriString();
+					
 	}
 	
 }
